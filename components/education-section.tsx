@@ -4,7 +4,7 @@ export function EducationSection() {
   return (
     <section id="formacao" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-12 text-center font-serif">Formacao</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-12 text-center font-serif">Formação</h2>
 
         <div className="space-y-8">
           {/* Main degree */}
@@ -28,7 +28,7 @@ export function EducationSection() {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                { name: "Programacao Avancada em Python e JavaScript", source: "Udemy", period: "Nov 2022 - Jan 2023" },
+                { name: "Programacao Avançada em Python e JavaScript", source: "Udemy", period: "Nov 2022 - Jan 2023" },
                 { name: "Desenvolvimento com React.js", source: "Udemy", period: "Fev 2024 - Mai 2024" },
                 { name: "Backend com Node.js", source: "Udemy", period: "Jan 2025 - Jul 2025" },
                 { name: "Ingles Intermediario", source: "", period: "Jan 2017 - Mai 2020" },

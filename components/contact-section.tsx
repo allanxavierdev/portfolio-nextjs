@@ -72,7 +72,7 @@ export function ContactSection() {
         {/* Footer */}
         <div className="mt-20 pt-8 border-t border-border">
           <p className="text-sm text-muted-foreground">
-            Allan Farias de Moura Xavier - Desenvolvedor Backend
+            Allan Xavier • Desenvolvedor Backend
           </p>
         </div>
       </div>

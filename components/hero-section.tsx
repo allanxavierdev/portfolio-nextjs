@@ -11,15 +11,15 @@ export function HeroSection() {
         {/* Left Content */}
         <div className="text-center lg:text-left space-y-8">
           <div className="space-y-4">
-            <p className="text-accent text-lg font-medium">Ola, o meu nome e</p>
+            <p className="text-accent text-lg font-medium">Olá, o meu nome é</p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-balance font-serif">
               <span className="text-foreground">Allan</span> <span className="text-primary">Xavier</span>
             </h1>
             <h2 className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground font-medium font-serif">
-              Desenvolvedor Backend
+              Desenvolvedor Backend 
             </h2>
             <p className="text-sm text-muted-foreground font-mono">
-              Python | FastAPI | Django | PostgreSQL | Docker
+              Python • FastAPI • Django • PostgreSQL • Docker
             </p>
           </div>
 
@@ -31,7 +31,7 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground animate-pulse-glow" asChild>
               <a href="#projetos">
-                Conheca meus projetos
+                Conheça meus projetos
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
