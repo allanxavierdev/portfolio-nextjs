@@ -6,10 +6,9 @@ export function AboutSection() {
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-center font-serif">Sobre mim</h2>
         <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-12 text-lg text-pretty">
-          Desenvolvedor Backend formado em Ciência da Computação, com experiência no desenvolvimento de soluções
-          utilizando Python (FastAPI e Django), integração entre serviços, modelagem e persistência de dados com
-          PostgreSQL, além de conteinerização com Docker e deploy em ambientes AWS. Atuo aplicando boas práticas
-          de arquitetura, organização de código, versionamento com Git e integração contínua (CI/CD).
+          Desenvolvedor Backend com foco na construção de APIs REST escaláveis e arquiteturas modernas. 
+          Experiência prática com Python (FastAPI e Django), modelagem de banco de dados relacional com PostgreSQL e conteinerização com Docker.
+          Busco atuar no desenvolvimento de sistemas robustos, aplicando boas práticas de arquitetura, versionamento e integração contínua.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

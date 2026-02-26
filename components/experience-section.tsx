@@ -36,13 +36,13 @@ const experiences = [
     color: "primary" as const,
     items: [
       "Desenvolvimento de API REST com FastAPI",
-      "Deploy na AWS com Dockerizacao",
-      "Integracao com PostgreSQL e arquitetura modular",
+      "Deploy na AWS com Dockerização",
+      "Integração com PostgreSQL e arquitetura modular",
     ],
   },
   {
-    title: "Estagiario - CAPES",
-    subtitle: "Estagio",
+    title: "Estagiário - CAPES",
+    subtitle: "Estágio",
     period: "Jun 2023 - Nov 2023",
     icon: Briefcase,
     color: "accent" as const,
@@ -53,15 +53,15 @@ const experiences = [
     ],
   },
   {
-    title: "Instrutor Voluntario - Inclusao Digital para Idosos",
+    title: "Instrutor Voluntário - Inclusão Digital para Idosos",
     subtitle: "Voluntariado",
     period: "Fev 2022 - Mai 2022",
     icon: Heart,
     color: "primary" as const,
     items: [
-      "Ensino de fundamentos de informatica basica",
-      "Apoio individual para resolucao de duvidas tecnicas",
-      "Contribuicao para inclusao digital e autonomia dos participantes",
+      "Ensino de fundamentos de informática básica",
+      "Apoio individual para resolução de dúvidas técnicas",
+      "Contribuição para inclusão digital e autonomia dos participantes",
     ],
   },
 ]
