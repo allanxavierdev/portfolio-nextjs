@@ -18,7 +18,7 @@ export function AboutSection() {
             </div>
             <h3 className="text-xl font-semibold text-foreground font-serif">APIs REST</h3>
             <p className="text-muted-foreground">
-              Construcao de APIs REST escalaveis com FastAPI e Django, autenticacao JWT e documentacao com Swagger/OpenAPI.
+              Construção de APIs REST escaláveis com FastAPI e Django, autenticação JWT e documentação com Swagger/OpenAPI.
             </p>
           </div>
 
@@ -28,7 +28,7 @@ export function AboutSection() {
             </div>
             <h3 className="text-xl font-semibold text-foreground font-serif">Banco de Dados</h3>
             <p className="text-muted-foreground">
-              Modelagem e persistencia de dados com PostgreSQL, MySQL e MongoDB, com foco em integridade e performance.
+              Modelagem e persistência de dados com PostgreSQL, MySQL e MongoDB, com foco em integridade e performance.
             </p>
           </div>
 
@@ -38,7 +38,7 @@ export function AboutSection() {
             </div>
             <h3 className="text-xl font-semibold text-foreground font-serif">DevOps</h3>
             <p className="text-muted-foreground">
-              Conteinerizacao com Docker, deploy em ambientes AWS e integracao continua com pipelines CI/CD.
+              Conteinerização com Docker, deploy em ambientes AWS e integração contínua com pipelines CI/CD.
             </p>
           </div>
         </div>
