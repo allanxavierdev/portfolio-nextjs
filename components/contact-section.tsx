@@ -121,23 +121,21 @@ export function ContactSection() {
                 href={contact.href}
                 target={contact.external ? "_blank" : undefined}
                 rel={contact.external ? "noopener noreferrer" : undefined}
-                className={`contact-item flex items-center gap-4 bg-card/50 p-5 rounded-lg border border-border hover:border-primary/40 transition-all duration-300 group ${
-                  isGithub
-                    ? "sm:col-span-2 justify-self-center w-full sm:max-w-md justify-center"
-                    : ""
-                }`}
+                className={[
+                  "contact-item w-full flex items-center justify-start gap-4",
+                  "bg-card/50 p-5 rounded-lg border border-border",
+                  "hover:border-primary/40 transition-colors group",
+                  // faz o GitHub ficar centralizado quando estiver em 2 colunas (desktop)
+                  isGithub ? "sm:col-span-2 sm:justify-self-center sm:max-w-xl" : "",
+                ].join(" ")}
               >
-                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                <div className="w-12 h-12 shrink-0 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
                   <Icon className="h-5 w-5 text-primary" />
                 </div>
 
-                <div className={isGithub ? "text-center" : "text-left"}>
-                  <p className="text-xs text-muted-foreground">
-                    {contact.label}
-                  </p>
-                  <p className="text-sm font-medium text-foreground">
-                    {contact.value}
-                  </p>
+                <div className="text-left">
+                  <p className="text-xs text-muted-foreground">{contact.label}</p>
+                  <p className="text-sm font-medium text-foreground">{contact.value}</p>
                 </div>
               </a>
             )
