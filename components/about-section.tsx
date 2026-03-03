@@ -1,7 +1,9 @@
 import { Server, Database, Container, GitBranch, Shield, Cpu } from "lucide-react"
+import AnimateOnScroll from '@/components/AnimateOnScroll'
 
 export function AboutSection() {
   return (
+    <AnimateOnScroll>
     <section id="sobre" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/30">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-center font-serif">Sobre mim</h2>
@@ -44,5 +46,6 @@ export function AboutSection() {
         </div>
       </div>
     </section>
+    </AnimateOnScroll>
   )
 }

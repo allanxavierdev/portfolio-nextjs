@@ -1,42 +1,120 @@
+"use client"
+
+import { useEffect, useRef } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { GraduationCap, BookOpen } from "lucide-react"
 
-export function EducationSection() {
-  return (
-    <section id="formacao" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-12 text-center font-serif">Formação</h2>
+gsap.registerPlugin(ScrollTrigger)
 
-        <div className="space-y-8">
-          {/* Main degree */}
-          <div className="bg-card/50 p-6 rounded-lg border border-border hover:border-primary/30 transition-colors">
+export function EducationSection() {
+  const root = useRef<HTMLElement | null>(null)
+
+  useEffect(() => {
+    if (!root.current) return
+
+    const ctx = gsap.context(() => {
+      // Título
+      gsap.fromTo(
+        ".edu-title",
+        { opacity: 0, y: 18, filter: "blur(6px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top 80%",
+            once: true,
+          },
+        }
+      )
+
+      // Cards
+      gsap.fromTo(
+        ".edu-card",
+        { opacity: 0, y: 22, filter: "blur(8px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.9,
+          ease: "power2.out",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top 75%",
+            once: true,
+          },
+        }
+      )
+    }, root)
+
+    return () => ctx.revert()
+  }, [])
+
+  return (
+    <section ref={root} id="formacao" className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="edu-title text-3xl sm:text-4xl font-bold text-center mb-12 font-serif">
+          Formação
+        </h2>
+
+        <div className="space-y-10">
+          {/* Graduação */}
+          <div className="edu-card bg-card/50 border border-border rounded-lg p-6 hover:border-primary/30 transition-colors">
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                <GraduationCap className="h-6 w-6 text-primary" />
+              <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-primary/20 text-primary border border-primary/30">
+                <GraduationCap className="h-5 w-5" />
               </div>
+
               <div>
-                <h3 className="text-lg font-semibold text-foreground">Bacharelado em Ciencia da Computacao</h3>
-                <p className="text-sm text-accent font-mono">Fev 2022 - Dez 2025</p>
+                <h3 className="text-lg font-semibold">
+                  Bacharelado em Ciência da Computação
+                </h3>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Fev 2022 – Dez 2025
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Complementary courses */}
+          {/* Cursos */}
           <div>
-            <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+            <div className="flex items-center gap-2 mb-6">
               <BookOpen className="h-5 w-5 text-accent" />
-              Cursos Complementares
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <h3 className="text-lg font-semibold">Cursos Complementares</h3>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-6">
               {[
-                { name: "Programacao Avançada em Python e JavaScript", source: "Udemy", period: "Nov 2022 - Jan 2023" },
-                { name: "Desenvolvimento com React.js", source: "Udemy", period: "Fev 2024 - Mai 2024" },
-                { name: "Backend com Node.js", source: "Udemy", period: "Jan 2025 - Jul 2025" },
-                { name: "Ingles Intermediario", source: "", period: "Jan 2017 - Mai 2020" },
-              ].map((course) => (
-                <div key={course.name} className="bg-card/50 p-4 rounded-lg border border-border">
-                  <h4 className="text-sm font-medium text-foreground">{course.name}</h4>
-                  {course.source && <p className="text-xs text-accent">{course.source}</p>}
-                  <p className="text-xs text-muted-foreground font-mono mt-1">{course.period}</p>
+                {
+                  title: "Programação Avançada em Python e JavaScript",
+                  period: "Nov 2022 – Jan 2023",
+                },
+                {
+                  title: "Desenvolvimento com React.js",
+                  period: "Fev 2024 – Mai 2024",
+                },
+                {
+                  title: "Backend com Node.js",
+                  period: "Jan 2025 – Jul 2025",
+                },
+                {
+                  title: "Inglês Intermediário",
+                  period: "Jan 2017 – Mai 2020",
+                },
+              ].map((course, index) => (
+                <div
+                  key={index}
+                  className="edu-card bg-card/50 border border-border rounded-lg p-5 hover:border-accent/40 transition-colors"
+                >
+                  <h4 className="font-medium">{course.title}</h4>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    {course.period}
+                  </p>
                 </div>
               ))}
             </div>

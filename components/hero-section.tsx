@@ -3,38 +3,105 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Code } from "lucide-react"
+import { useEffect, useRef } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Github } from "lucide-react"
+
+gsap.registerPlugin(ScrollTrigger)
 
 export function HeroSection() {
+  const root = useRef<HTMLElement | null>(null)
+  const photoWrap = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    if (!root.current) return
+
+    const ctx = gsap.context(() => {
+      // Entrada do Hero 
+      gsap.fromTo(
+        ".hero-item",
+        { opacity: 0, y: 18, filter: "blur(6px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.9,
+          stagger: 0.08,
+          ease: "power2.out",
+          delay: 0.1,
+        }
+      )
+
+      // Parallax l
+      if (photoWrap.current) {
+        gsap.to(photoWrap.current, {
+          y: -28,
+          ease: "none",
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 0.6,
+          },
+        })
+      }
+    }, root)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8">
+    <section
+      ref={root}
+      id="home"
+      className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8"
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
         <div className="text-center lg:text-left space-y-8">
           <div className="space-y-4">
-            <p className="text-accent text-lg font-medium">Olá, o meu nome é</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-balance font-serif">
-              <span className="text-foreground">Allan</span> <span className="text-primary">Xavier</span>
+            <p className="hero-item text-accent text-lg font-medium">
+              Olá, o meu nome é
+            </p>
+
+            <h1 className="hero-item text-4xl sm:text-5xl lg:text-6xl font-bold text-balance font-serif">
+              <span className="text-foreground">Allan</span>{" "}
+              <span className="text-primary">Xavier</span>
             </h1>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground font-medium font-serif">
-              Desenvolvedor Backend 
+
+            <h2 className="hero-item text-xl sm:text-2xl lg:text-3xl text-muted-foreground font-medium font-serif">
+              Desenvolvedor Backend
             </h2>
-            <p className="text-sm text-muted-foreground font-mono">
+
+            <p className="hero-item text-sm text-muted-foreground font-mono">
               Python • FastAPI • Django • PostgreSQL • Docker
             </p>
           </div>
 
-          <p className="text-lg text-muted-foreground max-w-2xl text-pretty">
-            Desenvolvedor Backend formado em Ciencia da Computacao, com foco na construcao de APIs REST
-            escalaveis e aplicacoes web modernas. Experiencia com Python, FastAPI, Django, PostgreSQL e Docker.
+          <p className="hero-item text-lg text-muted-foreground max-w-2xl text-pretty">
+            Desenvolvedor Backend com experiência prática na construção de APIs REST
+            escaláveis, autenticação JWT e modelagem de banco de dados relacional.
+            Atuo com Python (FastAPI e Django), Docker e deploy em ambientes cloud.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground animate-pulse-glow" asChild>
-              <a href="#projetos">
+          <div className="hero-item flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/30"
+              asChild
+            >
+              <a 
+              href="https://github.com/allanxavierdev" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              >
+                <Github className="mr-2 h-5 w-5" />
                 Conheça meus projetos
-                <ArrowRight className="ml-2 h-5 w-5" />
+                
               </a>
             </Button>
+
             <Button
               variant="outline"
               size="lg"
@@ -48,7 +115,7 @@ export function HeroSection() {
 
         {/* Right Content - Profile Photo */}
         <div className="flex justify-center lg:justify-end">
-          <div className="relative">
+          <div ref={photoWrap} className="relative">
             {/* Profile image container - subtle hover animation only */}
             <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 animate-float-subtle">
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/40 via-accent/30 to-primary/20 blur-2xl" />

@@ -10,9 +10,9 @@ export function Navigation() {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "Sobre", href: "#sobre" },
-    { name: "Experiencia", href: "#experiencia" },
+    { name: "Experiência", href: "#experiencia" },
     { name: "Skills", href: "#skills" },
-    { name: "Formacao", href: "#formacao" },
+    { name: "Formação", href: "#formacao" },
     { name: "Contato", href: "#contato" },
   ]
 

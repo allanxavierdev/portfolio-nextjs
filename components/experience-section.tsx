@@ -1,4 +1,11 @@
+"use client"
+
+import { useEffect, useRef } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Briefcase, GraduationCap, Heart } from "lucide-react"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const experiences = [
   {
@@ -67,26 +74,100 @@ const experiences = [
 ]
 
 export function ExperienceSection() {
+  const root = useRef<HTMLElement | null>(null)
+  const lineRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    if (!root.current) return
+
+    const ctx = gsap.context(() => {
+      // Título
+      gsap.fromTo(
+        ".exp-title",
+        { opacity: 0, y: 18, filter: "blur(6px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top 80%",
+            once: true,
+          },
+        }
+      )
+
+      // Cards (stagger)
+      gsap.fromTo(
+        ".exp-item",
+        { opacity: 0, y: 22, filter: "blur(8px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.9,
+          ease: "power2.out",
+          stagger: 0.12,
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top 70%",
+            once: true,
+          },
+        }
+      )
+
+      // Linha da timeline desenhando
+      if (lineRef.current) {
+        gsap.fromTo(
+          lineRef.current,
+          { scaleY: 0 },
+          {
+            scaleY: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: root.current,
+              start: "top 80%",
+              end: "bottom 25%",
+              scrub: 0.6,
+            },
+          }
+        )
+      }
+    }, root)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section id="experiencia" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section ref={root} id="experiencia" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-12 text-center font-serif">Experiência</h2>
+        <h2 className="exp-title text-3xl sm:text-4xl font-bold text-foreground mb-12 text-center font-serif">
+          Experiência
+        </h2>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-border hidden md:block" />
+          <div
+            ref={lineRef}
+            className="absolute left-6 top-0 bottom-0 w-px bg-border hidden md:block origin-top scale-y-0 will-change-transform"
+          />
 
           <div className="space-y-8">
             {experiences.map((exp, index) => {
               const Icon = exp.icon
-              const colorClasses = exp.color === "primary"
-                ? "bg-primary/20 text-primary border-primary/30"
-                : "bg-accent/20 text-accent border-accent/30"
+              const colorClasses =
+                exp.color === "primary"
+                  ? "bg-primary/20 text-primary border-primary/30"
+                  : "bg-accent/20 text-accent border-accent/30"
 
               return (
-                <div key={index} className="relative flex gap-6">
+                <div key={index} className="exp-item relative flex gap-6">
                   {/* Timeline dot */}
-                  <div className={`hidden md:flex flex-shrink-0 w-12 h-12 rounded-lg items-center justify-center border ${colorClasses}`}>
+                  <div
+                    className={`hidden md:flex flex-shrink-0 w-12 h-12 rounded-lg items-center justify-center border ${colorClasses}`}
+                  >
                     <Icon className="h-5 w-5" />
                   </div>
 
@@ -101,6 +182,7 @@ export function ExperienceSection() {
                         {exp.period}
                       </span>
                     </div>
+
                     <ul className="space-y-1.5">
                       {exp.items.map((item, i) => (
                         <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
