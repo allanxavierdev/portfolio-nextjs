@@ -107,7 +107,7 @@ export function ContactSection() {
         </h2>
 
         <p className="contact-title text-muted-foreground mb-12 max-w-2xl mx-auto text-pretty">
-          Estou disponível para oportunidades como Desenvolvedor Backend. Vamos conversar!
+          Estou disponível para oportunidades como Desenvolvedor Full-Stack. Vamos conversar!
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
@@ -157,7 +157,7 @@ export function ContactSection() {
 
         <div className="mt-20 pt-8 border-t border-border">
           <p className="text-sm text-muted-foreground">
-            Allan Xavier • Desenvolvedor Backend
+            Allan Xavier • Desenvolvedor Full-Stack
           </p>
         </div>
       </div>
