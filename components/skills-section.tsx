@@ -7,18 +7,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 gsap.registerPlugin(ScrollTrigger)
 
 const skills = [
-  { name: "Python", level: 75 },
-  { name: "FastAPI", level: 65 },
-  { name: "Django", level: 60 },
-  { name: "REST APIs", level: 65 },
-  { name: "PostgreSQL", level: 70 },
-  { name: "Docker", level: 65 },
+  { name: "Python", level: 80 },
+  { name: "TypeScript", level: 75 },
+  { name: "JavaScript", level: 75 },
+  { name: "FastAPI", level: 75 },
+  { name: "Django", level: 65 },
+  { name: "Angular", level: 70 },
+  { name: "Next.js / React", level: 70 },
+  { name: "REST APIs & Microsserviços", level: 80 },
+  { name: "PostgreSQL", level: 75 },
+  { name: "Docker", level: 70 },
   { name: "Git & GitHub", level: 80 },
-  { name: "JavaScript", level: 70 },
-  { name: "Node.js", level: 65 },
-  { name: "CI/CD", level: 70 },
-  { name: "HTML/CSS", level: 70 },
-  { name: "AWS", level: 60 },
+  { name: "LLMs & RAG", level: 65 },
 ]
 
 export function SkillsSection() {

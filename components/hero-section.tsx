@@ -71,18 +71,17 @@ export function HeroSection() {
             </h1>
 
             <h2 className="hero-item text-xl sm:text-2xl lg:text-3xl text-muted-foreground font-medium font-serif">
-              Desenvolvedor Backend
+              Desenvolvedor Full-Stack
             </h2>
 
             <p className="hero-item text-sm text-muted-foreground font-mono">
-              Python • FastAPI • Django • PostgreSQL • Docker
+              Python • FastAPI • Angular • TypeScript • PostgreSQL • Docker
             </p>
           </div>
 
           <p className="hero-item text-lg text-muted-foreground max-w-2xl text-pretty">
-            Desenvolvedor Backend com experiência prática na construção de APIs REST
-            escaláveis, autenticação JWT e modelagem de banco de dados relacional.
-            Atuo com Python (FastAPI e Django), Docker e deploy em ambientes cloud.
+            Desenvolvedor Full-Stack com experiência em APIs REST, microsserviços e aplicações de alta complexidade.
+            Atuo com Python (FastAPI/Django) no backend, Angular e Next.js no frontend, e integração com IA (LLMs e RAG).
           </p>
 
           <div className="hero-item flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

@@ -8,9 +8,9 @@ export function AboutSection() {
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-center font-serif">Sobre mim</h2>
         <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-12 text-lg text-pretty">
-          Desenvolvedor Backend com foco na construção de APIs REST escaláveis e arquiteturas modernas. 
-          Experiência prática com Python (FastAPI e Django), modelagem de banco de dados relacional com PostgreSQL e conteinerização com Docker.
-          Busco atuar no desenvolvimento de sistemas robustos, aplicando boas práticas de arquitetura, versionamento e integração contínua.
+          Desenvolvedor Full-Stack com mais de 3 anos de experiência em APIs REST, microsserviços e aplicações de alta complexidade.
+          Formado em Ciência da Computação pelo UniCEUB, atuo com Python (FastAPI/Django) no backend, Angular e Next.js no frontend,
+          PostgreSQL, Docker e integração com Inteligência Artificial (LLMs e RAG).
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -18,19 +18,19 @@ export function AboutSection() {
             <div className="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center">
               <Server className="h-7 w-7 text-primary" />
             </div>
-            <h3 className="text-xl font-semibold text-foreground font-serif">APIs REST</h3>
+            <h3 className="text-xl font-semibold text-foreground font-serif">Backend & APIs</h3>
             <p className="text-muted-foreground">
-              Construção de APIs REST escaláveis com FastAPI e Django, autenticação JWT e documentação com Swagger/OpenAPI.
+              APIs REST e microsserviços com FastAPI e Django, autenticação JWT, Swagger/OpenAPI e arquitetura escalável.
             </p>
           </div>
 
           <div className="space-y-4 bg-card/50 p-6 rounded-lg border border-border hover:border-accent/40 transition-colors">
             <div className="w-14 h-14 bg-accent/20 rounded-lg flex items-center justify-center">
-              <Database className="h-7 w-7 text-accent" />
+              <Cpu className="h-7 w-7 text-accent" />
             </div>
-            <h3 className="text-xl font-semibold text-foreground font-serif">Banco de Dados</h3>
+            <h3 className="text-xl font-semibold text-foreground font-serif">Frontend & IA</h3>
             <p className="text-muted-foreground">
-              Modelagem e persistência de dados com PostgreSQL, MySQL e MongoDB, com foco em integridade e performance.
+              Interfaces com Angular, Next.js e React. Integração com LLMs e arquitetura RAG para soluções inteligentes.
             </p>
           </div>
 
@@ -38,9 +38,9 @@ export function AboutSection() {
             <div className="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center">
               <Container className="h-7 w-7 text-primary" />
             </div>
-            <h3 className="text-xl font-semibold text-foreground font-serif">DevOps</h3>
+            <h3 className="text-xl font-semibold text-foreground font-serif">DevOps & Dados</h3>
             <p className="text-muted-foreground">
-              Conteinerização com Docker, deploy em ambientes AWS e integração contínua com pipelines CI/CD.
+              Conteinerização com Docker, PostgreSQL, modelagem relacional e boas práticas de CI/CD e versionamento.
             </p>
           </div>
         </div>
